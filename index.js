@@ -7,6 +7,8 @@ app.listen(3000, () =>{
     console.log('Servidor iniciado')
 })
 
+app.use(express.json())
+
 app.get('/perfil', (req, res) =>{
     res.send('David Leal Olivares')
 })
