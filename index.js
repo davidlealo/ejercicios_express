@@ -22,3 +22,11 @@ app.get('/usuarios', (req, res) =>{
     const usuarios = JSON.parse(fs.readFileSync('usuarios.json'))
     res.json(usuarios)
 })
+
+app.post('/productos', (req, res) => {
+    const producto = req.body
+    const productos = JSON.parse(fs.readFileSync('productos.json'))
+    productos.push(producto)
+    fs.writeFileSync('productos.json', JSON.stringify(productos))
+    res.send('Producto agregado con éxito!')
+})
